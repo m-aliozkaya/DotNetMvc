@@ -1,0 +1,27 @@
+﻿@model List<EntityLayer.Concrete.Category>
+
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+
+<h3>Category List</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Durum</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Id</th>
+            <th>@item.Name</th>
+            <th>@item.Status</th>
+        </tr>
+    }
+</table>
+
+</div>
