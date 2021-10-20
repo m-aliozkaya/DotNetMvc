@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +39,20 @@ namespace DotNetMvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                categoryManager.Add(category);
-                return RedirectToAction("GetCategoryList");
+
+                CategoryValidator validator = new CategoryValidator();
+                ValidationResult results = validator.Validate(category);
+
+                if (results.IsValid)
+                {
+                    categoryManager.Add(category);
+                    return RedirectToAction("GetCategoryList");
+                }
+
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
             }
 
             return View(category);
