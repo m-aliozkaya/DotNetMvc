@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "İstatistikler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>İstatistikler</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="small-box bg-purple">
+            <div class="inner" style="text-align: center">
+                <h3>@ViewBag.categoryCount</h3>
+                <p>Toplam Kategori Sayısı</p>
+            </div>
+            <a href="#" class="small-box-footer"></a>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-success">
+            <div class="inner" style="text-align: center">
+                <h3>@ViewBag.categoryYazilimCount</h3>
+                <p>Yazılım Kategorisi Başlık Sayısı</p>
+            </div>
+            <a href="#" class="small-box-footer"></a>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-red">
+            <div class="inner" style="text-align: center">
+                <h3>@ViewBag.writersCount</h3>
+                <p>Yazar adında a harfi geçen yazar sayısı</p>
+            </div>
+            <a href="#" class="small-box-footer"></a>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-warning">
+            <div class="inner" style="text-align: center">
+                <h3>@ViewBag.maxTitlesCategory</h3>
+                <p>En fazla başlığa sahip kategori adı</p>
+            </div>
+            <a href="#" class="small-box-footer"></a>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-blue">
+            <div class="inner" style="text-align: center">
+                <h3>@ViewBag.gapActiveDeactiveCategories</h3>
+                <p>Kategori tablosunda durumu true ve false olanların farkı</p>
+            </div>
+            <a href="#" class="small-box-footer"></a>
+        </div>
+    </div>
+
+</div>
