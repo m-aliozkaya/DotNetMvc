@@ -17,5 +17,6 @@ namespace BusinessLayer.Abstract
 
         void Delete(Category category);
 
+        Category GetCategoryById(int id);
     }
 }

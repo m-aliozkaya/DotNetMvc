@@ -47,5 +47,44 @@ namespace DotNetMvc.Controllers
             return View(category);
 
         }
+
+        public ActionResult DeleteCategory(int id)
+        {
+            var category = cm.GetCategoryById(id);
+
+            cm.Delete(category);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateCategory(int id)
+        {
+            var category = cm.GetCategoryById(id);
+            return View(category);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateCategory(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                CategoryValidator validator = new CategoryValidator();
+                ValidationResult results = validator.Validate(category);
+
+                if (results.IsValid)
+                {
+                    cm.Update(category);
+                    return RedirectToAction("Index");
+                }
+
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View(category);
+        }
     }
 }

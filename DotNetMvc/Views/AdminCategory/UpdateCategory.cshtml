@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h1>Kategoriyi Güncelle</h1>
+    @using (Html.BeginForm("UpdateCategory", "AdminCategory", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label"})
+            @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+            @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", @rows = 10 })
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <button class="btn btn-success">Send</button>
+    }
+</div>
+
+
