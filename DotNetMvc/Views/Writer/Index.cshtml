@@ -1,0 +1,37 @@
+﻿@model List<EntityLayer.Concrete.Writer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+
+    <h3>Category List</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyad</th>
+            <th>Email</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Başlıklar</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <th>@item.Name</th>
+                <th>@item.SurName</th>
+                <th>@item.Email</th>
+                <th><a href="/Writer/DeleteWriter/@item.Id" class="btn btn-danger">Sil</a></th>
+                <th><a href="/Writer/UpdateWriter/@item.Id" class="btn btn-warning">Güncelle</a></th>
+                <th><a href="#" class="btn btn-primary">Contents</a></th>
+            </tr>
+        }
+    </table>
+    <br />
+    <a href="/Writer/AddWriter" class="btn btn-success">Yazar Ekle</a>
+</div>
+
