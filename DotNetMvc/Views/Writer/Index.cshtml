@@ -7,31 +7,49 @@
 
 <div class="container">
 
-    <h3>Category List</h3>
-    <table class="table table-bordered">
-        <tr>
-            <th>Id</th>
-            <th>Adı</th>
-            <th>Soyad</th>
-            <th>Email</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-            <th>Başlıklar</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <th>@item.Id</th>
-                <th>@item.Name</th>
-                <th>@item.SurName</th>
-                <th>@item.Email</th>
-                <th><a href="/Writer/DeleteWriter/@item.Id" class="btn btn-danger">Sil</a></th>
-                <th><a href="/Writer/UpdateWriter/@item.Id" class="btn btn-warning">Güncelle</a></th>
-                <th><a href="#" class="btn btn-primary">Contents</a></th>
-            </tr>
-        }
-    </table>
-    <br />
-    <a href="/Writer/AddWriter" class="btn btn-success">Yazar Ekle</a>
+    <h3>Yazar Listesi</h3>
+
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                        <div class="card bg-light d-flex flex-fill">
+                            <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>@item.Name @item.SurName</b></h2>
+                                        <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img src="/assets/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                    </div>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Mail: @item.Email</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                        <i class="fas fa-comments"></i> Başlıklar
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-user"></i> Profili Düzenle
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
 </div>
 
