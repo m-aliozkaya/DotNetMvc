@@ -1,5 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +19,32 @@ namespace DotNetMvc.Controllers
         {
             var writerList = wm.GetList();
             return View(writerList);
+        }
+
+        [HttpGet]
+        public ActionResult AddWriter()
+        {
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult AddWriter(Writer writer)
+        {
+            WriterValidator validationRules = new WriterValidator();
+            ValidationResult result = validationRules.Validate(writer);
+
+            if (result.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+
+            return View(writer);
         }
     }
 }
