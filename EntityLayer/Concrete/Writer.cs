@@ -15,6 +15,7 @@ namespace EntityLayer.Concrete
         public string About { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Title { get; set; }
 
         public ICollection<Heading> Heading { get; set; }
         public ICollection<Content> Contents { get; set; }

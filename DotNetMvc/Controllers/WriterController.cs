@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Concrete;
+﻿ using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -36,6 +36,35 @@ namespace DotNetMvc.Controllers
 
             if (result.IsValid)
             {
+                wm.AddWriter(writer);
+                return RedirectToAction("Index");
+            }
+
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+
+            return View(writer);
+        }
+
+        [HttpGet]
+        public ActionResult EditWriter(int id)
+        {
+            var writer = wm.GetWriterById(id);
+            return View(writer);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult EditWriter(Writer writer)
+        {
+            WriterValidator validationRules = new WriterValidator();
+            ValidationResult result = validationRules.Validate(writer);
+
+            if (result.IsValid)
+            {
+                wm.UpdateWriter(writer);
                 return RedirectToAction("Index");
             }
 

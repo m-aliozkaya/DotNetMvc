@@ -5,35 +5,39 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Yeni Yazar Ekleme</h2>
+<h2>Yazarı Güncelleme</h2>
 
-@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
+@using (Html.BeginForm("EditWriter", "Writer", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
+        @Html.Label("Yazar Id")
+        @Html.TextBoxFor(w => w.Id, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
         @Html.Label("Yazar Adı")
         @Html.TextBoxFor(w => w.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(w => w.Name)
+        @Html.ValidationMessageFor(w => w.Name, null, new { @class = "alert-danger" })
     </div>
     <div class="form-group">
         @Html.Label("Yazar Soyadı")
         @Html.TextBoxFor(w => w.SurName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(w => w.SurName)
+        @Html.ValidationMessageFor(w => w.SurName, null, new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.Label("Yazar Mail")
         @Html.TextBoxFor(w => w.Email, new { @class = "form-control" })
-        @Html.ValidationMessageFor(w => w.Email)
+        @Html.ValidationMessageFor(w => w.Email, null, new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.Label("Yazar Şifresi")
         @Html.TextBoxFor(w => w.Password, new { @class = "form-control" })
-        @Html.ValidationMessageFor(w => w.Password)
+        @Html.ValidationMessageFor(w => w.Password, null, new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.Label("Yazar Görsel Linki")
         @Html.TextBoxFor(w => w.Image, new { @class = "form-control" })
-        @Html.ValidationMessageFor(w => w.Image)
+        @Html.ValidationMessageFor(w => w.Image, null, new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.Label("Yazar Unvan")
@@ -43,8 +47,7 @@
     <div class="form-group">
         @Html.Label("Yazar Hakkında")
         @Html.TextAreaFor(w => w.About, new { @class = "form-control" })
-        @Html.ValidationMessageFor(w => w.About)
+        @Html.ValidationMessageFor(w => w.About, null, new { @class = "text-danger" })
     </div>
-    <button class="btn btn-success">Yazarı Ekle</button>
+    <button class="btn btn-success">Kaydet</button>
 }
-
