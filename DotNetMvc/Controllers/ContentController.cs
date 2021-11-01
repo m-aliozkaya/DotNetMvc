@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,7 @@ namespace DotNetMvc.Controllers
 {
     public class ContentController : Controller
     {
+        ContentManager cm = new ContentManager(new EfContentDal());
         // GET: Content
         public ActionResult Index()
         {
@@ -16,7 +19,8 @@ namespace DotNetMvc.Controllers
 
         public ActionResult GetContentsByHeading(int id)
         {
-            return View();
+            var contents = cm.GetListByHeading(id);
+            return View(contents);
         }
     }
 }
