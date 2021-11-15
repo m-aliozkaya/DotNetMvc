@@ -26,7 +26,8 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Heading heading)
         {
-            _headingDal.Delete(heading);
+            heading.Status = false;
+            _headingDal.Update(heading);
         }
 
         public Heading GetHeadingById(int id)

@@ -57,5 +57,47 @@ namespace DotNetMvc.Controllers
             return View(heading);
         }
 
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            ViewBag.CategoryId = new SelectList(cm.GetList(), "Id", "Name");
+            ViewBag.WriterId = new SelectList(wm.GetList(), "Id", "Name");
+
+            var heading = hm.GetHeadingById(id);
+            return View(heading);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading)
+        {
+            heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            ViewBag.CategoryId = new SelectList(cm.GetList(), "Id", "Name");
+            ViewBag.WriterId = new SelectList(wm.GetList(), "Id", "Name");
+
+            HeadingValidator validator = new HeadingValidator();
+            ValidationResult result = validator.Validate(heading);
+
+            if (result.IsValid)
+            {
+
+                hm.Update(heading);
+                return RedirectToAction("Index");
+            }
+
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+
+            return View(heading);
+        }
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var heading = hm.GetHeadingById(id);
+            hm.Delete(heading);
+            return RedirectToAction("Index");
+        }
     }
 }
