@@ -115,11 +115,23 @@
                                     </i>
                                     Edit
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.Id">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
+                                @if (item.Status)
+                                {
+                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.Id">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Deactivate
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success btn-sm" href="/Heading/DeleteHeading/@item.Id">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Activate
+                                    </a>
+                                }
+
                             </td>
                         </tr>
                         }
