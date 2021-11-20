@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,23 @@ namespace DotNetMvc.Controllers
             ViewBag.contactCount = cm.GetList().Count();
 
             return View(messageList);
+        }
+
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            ViewBag.sendboxCount = mm.GetListSendbox().Count();
+            ViewBag.inboxCount = mm.GetListInbox().Count();
+            ViewBag.contactCount = cm.GetList().Count();
+
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult NewMessage(Message message)
+        {
+            return View();
         }
     }
 }
