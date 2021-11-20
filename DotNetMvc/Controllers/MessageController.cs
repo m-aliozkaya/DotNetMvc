@@ -11,10 +11,27 @@ namespace DotNetMvc.Controllers
     public class MessageController : Controller
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
+        ContactManager cm = new ContactManager(new EfContactDal());
         // GET: Message
         public ActionResult Inbox()
         {
-            var messageList = mm.GetList();
+            var messageList = mm.GetListInbox();
+
+            ViewBag.sendboxCount = mm.GetListSendbox().Count();
+            ViewBag.inboxCount = mm.GetListInbox().Count();
+            ViewBag.contactCount = cm.GetList().Count();
+
+            return View(messageList);
+        }
+
+        public ActionResult Sendbox()
+        {
+            var messageList = mm.GetListSendbox();
+
+            ViewBag.sendboxCount = mm.GetListSendbox().Count();
+            ViewBag.inboxCount = mm.GetListInbox().Count();
+            ViewBag.contactCount = cm.GetList().Count();
+
             return View(messageList);
         }
     }

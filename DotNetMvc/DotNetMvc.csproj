@@ -289,6 +289,7 @@
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
     <Content Include="Views\Shared\_LeftSideBar.cshtml" />
     <Content Include="Views\Message\Inbox.cshtml" />
+    <Content Include="Views\Message\Sendbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
