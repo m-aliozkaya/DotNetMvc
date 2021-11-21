@@ -135,6 +135,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -147,12 +148,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\adminlte.min.css" />
+    <Content Include="assets\css\style404.css" />
     <Content Include="assets\img\AdminLTELogo.png" />
     <Content Include="assets\img\avatar.png" />
     <Content Include="assets\img\avatar2.png" />
     <Content Include="assets\img\avatar3.png" />
     <Content Include="assets\img\avatar4.png" />
     <Content Include="assets\img\avatar5.png" />
+    <Content Include="assets\img\bg.jpg" />
     <Content Include="assets\img\boxed-bg.jpg" />
     <Content Include="assets\img\boxed-bg.png" />
     <Content Include="assets\img\credit\american-express.png" />
@@ -454,6 +457,7 @@
     <Content Include="Views\Contact\MessageListMenu.cshtml" />
     <Content Include="Views\Message\GetMessageDetails.cshtml" />
     <Content Include="Views\Message\Draft.cshtml" />
+    <Content Include="Views\Error\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
