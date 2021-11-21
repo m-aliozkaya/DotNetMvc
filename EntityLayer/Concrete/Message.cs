@@ -13,6 +13,7 @@ namespace EntityLayer.Concrete
         public string SenderMail { get; set; }
         public string ReceiverMail { get; set; }
         public string Subject { get; set; }
+        public bool Status { get; set; }
         [AllowHtml]
         public string Content { get; set; }
         public DateTime Date { get; set; }

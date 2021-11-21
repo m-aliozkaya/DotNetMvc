@@ -453,6 +453,7 @@
     <Content Include="Views\Message\NewMessage.cshtml" />
     <Content Include="Views\Contact\MessageListMenu.cshtml" />
     <Content Include="Views\Message\GetMessageDetails.cshtml" />
+    <Content Include="Views\Message\Draft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

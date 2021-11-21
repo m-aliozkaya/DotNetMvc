@@ -44,6 +44,11 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(m => m.SenderMail == "admin@gmail.com");
         }
 
+        public List<Message> GetListDraft()
+        {
+            return _messageDal.List(m => m.SenderMail == "admin@gmail.com" && m.Status == false);
+        }
+
         public void Update(Message message)
         {
             _messageDal.Update(message);

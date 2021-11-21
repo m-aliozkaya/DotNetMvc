@@ -29,6 +29,13 @@ namespace DotNetMvc.Controllers
             return View(messageList);
         }
 
+        public ActionResult Draft()
+        {
+            var messageList = mm.GetListDraft();
+
+            return View(messageList);
+        }
+
         public ActionResult GetMessageDetails(int id)
         {
             var message = mm.GetById(id);
@@ -43,9 +50,35 @@ namespace DotNetMvc.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult NewMessage(Message message)
+        public ActionResult Save(Message message)
         {
             message.Date = DateTime.Now;
+            message.Status = true;
+
+            var result = validator.Validate(message);
+
+            if (result.IsValid)
+            {
+                mm.Add(message);
+                return RedirectToAction("Sendbox");
+            }
+
+
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+
+            return View(message);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult Draft(Message message)
+        {
+            message.Date = DateTime.Now;
+            message.Status = false;
+
             var result = validator.Validate(message);
 
             if (result.IsValid)
