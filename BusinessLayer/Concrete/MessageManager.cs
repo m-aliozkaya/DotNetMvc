@@ -29,7 +29,7 @@ namespace BusinessLayer.Concrete
             _messageDal.Delete(message);
         }
 
-        public Message GetCategoryById(int id)
+        public Message GetById(int id)
         {
             return _messageDal.Get(m => m.Id == id);
         }

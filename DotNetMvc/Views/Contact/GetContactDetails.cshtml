@@ -5,33 +5,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-
-<body class="hold-transition sidebar-mini">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Compose</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Compose</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="mailbox.html" class="btn btn-primary btn-block mb-3">Gelen Kutusu</a>
-                    @Html.Partial("_LeftSideBar")
+                    <a href="/Contact" class="btn btn-primary btn-block mb-3">Gelen Kutusu</a>
+                    @Html.Action("MessageListMenu", "Contact")
                 </div>
                 <!-- /.col -->
                 <div class="col-md-9">
@@ -85,5 +64,3 @@
             <!-- /.row -->
         </div>
     </section>
-</body>
-</html>

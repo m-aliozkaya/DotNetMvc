@@ -21,7 +21,7 @@
     <section class="content">
         <div class="row">
             <div class="col-md-3">
-                @Html.Partial("_LeftSideBar")
+                @Html.Action("MessageListMenu", "Contact")
             </div>
             <!-- /.col -->
             <div class="col-md-9">
@@ -69,21 +69,21 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>
-                                                <div class="icheck-primary">
-                                                    <input type="checkbox" value="" id="check1">
-                                                    <label for="check1"></label>
-                                                </div>
-                                            </td>
-                                            <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.Id">@item.SenderMail</a></td>
-                                            <td class="mailbox-subject">
-                                                <b>@item.Subject</b> @item.Content.Substring(0, 30)...
-                                            </td>
-                                            <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@item.Date.ToString("dd MMMM yyyy")</td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" value="" id="check1">
+                                                <label for="check1"></label>
+                                            </div>
+                                        </td>
+                                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                        <td class="mailbox-name"><a href="/Message/GetMessageDetails/@item.Id">@item.SenderMail</a></td>
+                                        <td class="mailbox-subject">
+                                            <b>@item.Subject</b> @item.Content.Substring(0, 30)...
+                                        </td>
+                                        <td class="mailbox-attachment"></td>
+                                        <td class="mailbox-date text-sm" style="min-width:120px">@item.Date.ToString("d-MM-yyyy")</td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>

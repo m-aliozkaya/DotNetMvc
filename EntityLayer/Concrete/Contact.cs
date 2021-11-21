@@ -13,6 +13,7 @@ namespace EntityLayer.Concrete
         public string UserEmail { get; set; }
         public string Subject { get; set; }
         public string Message { get; set; }
+        public DateTime Date { get; set; }
 
     }
 }

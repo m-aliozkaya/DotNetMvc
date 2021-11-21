@@ -18,6 +18,6 @@ namespace BusinessLayer.Abstract
 
         void Delete(Message message);
 
-        Message GetCategoryById(int id);
+        Message GetById(int id);
     }
 }

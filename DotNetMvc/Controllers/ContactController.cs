@@ -19,10 +19,6 @@ namespace DotNetMvc.Controllers
         {
             var values = cm.GetList();
 
-            ViewBag.sendboxCount = mm.GetListSendbox().Count();
-            ViewBag.inboxCount = mm.GetListInbox().Count();
-            ViewBag.contactCount = cm.GetList().Count();
-
             return View(values);
         }
 
@@ -30,11 +26,16 @@ namespace DotNetMvc.Controllers
         {
             var contactDetail = cm.GetContactById(id);
 
+            return View(contactDetail);
+        }
+
+        public PartialViewResult MessageListMenu()
+        {
             ViewBag.sendboxCount = mm.GetListSendbox().Count();
             ViewBag.inboxCount = mm.GetListInbox().Count();
             ViewBag.contactCount = cm.GetList().Count();
 
-            return View(contactDetail);
+            return PartialView();
         }
     }
 }

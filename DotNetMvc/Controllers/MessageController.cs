@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -12,15 +13,11 @@ namespace DotNetMvc.Controllers
     public class MessageController : Controller
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
-        ContactManager cm = new ContactManager(new EfContactDal());
+        MessageValidator validator = new MessageValidator();
         // GET: Message
         public ActionResult Inbox()
         {
             var messageList = mm.GetListInbox();
-
-            ViewBag.sendboxCount = mm.GetListSendbox().Count();
-            ViewBag.inboxCount = mm.GetListInbox().Count();
-            ViewBag.contactCount = cm.GetList().Count();
 
             return View(messageList);
         }
@@ -29,20 +26,18 @@ namespace DotNetMvc.Controllers
         {
             var messageList = mm.GetListSendbox();
 
-            ViewBag.sendboxCount = mm.GetListSendbox().Count();
-            ViewBag.inboxCount = mm.GetListInbox().Count();
-            ViewBag.contactCount = cm.GetList().Count();
-
             return View(messageList);
+        }
+
+        public ActionResult GetMessageDetails(int id)
+        {
+            var message = mm.GetById(id);
+            return View(message);
         }
 
         [HttpGet]
         public ActionResult NewMessage()
         {
-            ViewBag.sendboxCount = mm.GetListSendbox().Count();
-            ViewBag.inboxCount = mm.GetListInbox().Count();
-            ViewBag.contactCount = cm.GetList().Count();
-
             return View();
         }
 
@@ -50,7 +45,22 @@ namespace DotNetMvc.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
-            return View();
+            message.Date = DateTime.Now;
+            var result = validator.Validate(message);
+
+            if (result.IsValid)
+            {
+                mm.Add(message);
+                return RedirectToAction("Sendbox");
+            }
+
+
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+
+            return View(message);
         }
     }
 }
