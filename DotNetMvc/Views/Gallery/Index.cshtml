@@ -1,0 +1,43 @@
+﻿@model List<EntityLayer.Concrete.ImageFile> 
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/assets/plugins/fontawesome-free/css/all.min.css">
+<!-- Ekko Lightbox -->
+<link rel="stylesheet" href="~/assets/plugins/ekko-lightbox/ekko-lightbox.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Sözlük Galerisi
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-2">
+                                    <a href="~/assets/images/@item.Path" data-toggle="lightbox" data-title="@item.Name" data-gallery="gallery">
+                                        <img style="height:120px;" src="~/assets/images/@item.Path" class="img-fluid mb-2" alt="@item.Name" />
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+<!-- /.content-wrapper -->

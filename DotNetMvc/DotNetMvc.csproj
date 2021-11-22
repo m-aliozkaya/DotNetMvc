@@ -136,6 +136,8 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\GalleryManager.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -151,6 +153,20 @@
     <Content Include="assets\css\adminlte.min.css" />
     <Content Include="assets\css\login.css" />
     <Content Include="assets\css\style404.css" />
+    <Content Include="assets\images\corn-field-1-1368931-1280x960-min.jpg" />
+    <Content Include="assets\images\corn-field-2-1368926-1280x960-min.jpg" />
+    <Content Include="assets\images\escalante-2-1391686-1280x960-min.jpg" />
+    <Content Include="assets\images\frog-1371919-1279x852-min.jpg" />
+    <Content Include="assets\images\horse-1393073-1279x852-min.jpg" />
+    <Content Include="assets\images\jungle-1377573-1279x871-min.jpg" />
+    <Content Include="assets\images\koldalen-4-1384902-1280x960-min.jpg" />
+    <Content Include="assets\images\night-fog-1521028-1279x729-min.jpg" />
+    <Content Include="assets\images\on-the-road-6-1384796-1279x852-min.jpg" />
+    <Content Include="assets\images\pink-heart-of-stone-1316358-1280x960-min.jpg" />
+    <Content Include="assets\images\pink-plate-1529411-1279x852-min.jpg" />
+    <Content Include="assets\images\poppies-1369329-1279x852-min.jpg" />
+    <Content Include="assets\images\vikingland-1316664-1279x957-min.jpg" />
+    <Content Include="assets\images\volcanic-mt-ngauruhoe-1378772-1280x960-min.jpg" />
     <Content Include="assets\img\AdminLTELogo.png" />
     <Content Include="assets\img\avatar.png" />
     <Content Include="assets\img\avatar2.png" />
@@ -199,6 +215,12 @@
     <Content Include="assets\plugins\chart.js\Chart.js" />
     <Content Include="assets\plugins\chart.js\Chart.min.css" />
     <Content Include="assets\plugins\chart.js\Chart.min.js" />
+    <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.css" />
+    <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.js" />
+    <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.min.js" />
+    <Content Include="assets\plugins\filterizr\filterizr.min.js" />
+    <Content Include="assets\plugins\filterizr\jquery.filterizr.min.js" />
+    <Content Include="assets\plugins\filterizr\vanilla.filterizr.min.js" />
     <Content Include="assets\plugins\fontawesome-free\css\all.css" />
     <Content Include="assets\plugins\fontawesome-free\css\all.min.css" />
     <Content Include="assets\plugins\fontawesome-free\css\brands.css" />
@@ -410,6 +432,8 @@
     <Content Include="assets\plugins\summernote\summernote-lite.min.js.map" />
     <Content Include="assets\plugins\summernote\summernote.js.map" />
     <Content Include="assets\plugins\summernote\summernote.min.js.map" />
+    <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.js.map" />
+    <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -463,6 +487,7 @@
     <Content Include="Views\Message\Draft.cshtml" />
     <Content Include="Views\Error\Page404.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
