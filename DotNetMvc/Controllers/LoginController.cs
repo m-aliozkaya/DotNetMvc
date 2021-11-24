@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,8 @@ namespace DotNetMvc.Controllers
 {
     public class LoginController : Controller
     {
+        AdminManager manager = new AdminManager(new EfAdminDal());
+
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -22,8 +26,7 @@ namespace DotNetMvc.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            Context context = new Context();
-            var user = context.Admins.FirstOrDefault(x => x.UserName == admin.UserName && x.Password == admin.Password);
+            var user = manager.GetUser(admin);
 
             if (user != null)
             {
