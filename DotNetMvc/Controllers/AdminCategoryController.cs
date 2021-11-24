@@ -15,6 +15,8 @@ namespace DotNetMvc.Controllers
     {
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         // GET: Admin
+
+        [Authorize]
         public ActionResult Index()
         {
             var categories = cm.GetList();
