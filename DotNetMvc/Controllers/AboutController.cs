@@ -36,5 +36,14 @@ namespace DotNetMvc.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult ChangeStatus(int id)
+        {
+            var about = abm.GetAboutById(id);
+            about.Status = !about.Status;
+            abm.Update(about);
+
+            return RedirectToAction("Index");
+        }
     }
 }

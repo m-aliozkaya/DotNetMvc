@@ -13,6 +13,7 @@ namespace BusinessLayer.Concrete
     {
         IAdminDal _adminDal;
 
+        // Dependecy Injection
         public AdminManager(IAdminDal adminDal)
         {
             _adminDal = adminDal;
