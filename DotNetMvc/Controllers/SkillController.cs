@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,18 @@ namespace DotNetMvc.Controllers
 {
     public class SkillController : Controller
     {
+        SkillManager sm = new SkillManager(new EfSkillDal());
         // GET: Skill
         public ActionResult Index()
         {
-            return View();
+            var skills = sm.GetSkills();
+            return View(skills);
+        }
+
+        public ActionResult Edit()
+        {
+            var skills = sm.GetSkills();
+            return View(skills);
         }
     }
 }
