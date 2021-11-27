@@ -32,7 +32,7 @@ namespace DotNetMvc.Controllers
         public PartialViewResult MessageListMenu()
         {
             ViewBag.sendboxCount = mm.GetListSendbox().Count;
-            ViewBag.inboxCount = mm.GetListInbox().Count;
+            ViewBag.inboxCount = mm.GetListInbox().Where(x => x.IsReaded == false).ToList().Count;
             ViewBag.contactCount = cm.GetList().Count;
             ViewBag.draftCount = mm.GetListDraft().Count;
 

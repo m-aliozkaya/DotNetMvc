@@ -39,6 +39,8 @@ namespace DotNetMvc.Controllers
         public ActionResult GetMessageDetails(int id)
         {
             var message = mm.GetById(id);
+            message.IsReaded = true;
+            mm.Update(message);
             return View(message);
         }
 

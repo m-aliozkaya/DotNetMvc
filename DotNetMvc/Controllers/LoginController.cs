@@ -27,6 +27,7 @@ namespace DotNetMvc.Controllers
         public ActionResult Index(Admin admin)
         {
             var user = manager.GetUser(admin);
+       
 
             if (user != null)
             {
