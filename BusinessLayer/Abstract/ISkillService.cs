@@ -15,7 +15,7 @@ namespace BusinessLayer.Abstract
 
         void Update(Skill skill);
 
-        void Delete(Skill skill);
+        void Delete(int id);
         Skill GetSkillById(int id);
     }
 }

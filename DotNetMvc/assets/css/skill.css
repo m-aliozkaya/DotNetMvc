@@ -159,12 +159,7 @@ p {
     background: rgb(245,246,246);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=1 );
 }
-.text-left {
-    float: left;
-}
-.text-right  {
-    float: right;
-}
+
 .signin-text {
     margin-top: 1.5em;
 }

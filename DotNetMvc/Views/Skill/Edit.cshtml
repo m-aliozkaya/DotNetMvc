@@ -1,7 +1,52 @@
-﻿
+﻿@model List<EntityLayer.Concrete.Skill>
+
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_SkillLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<style>
+    .table td, .table th {
+        border-top: 0;
+    }
+    h2{
+        font-size: 30px;
+    }
+</style>
+
+<h2 class="text-center text-white">Yetenekleri Düzenle</h2>
+<hr>
+<table class="table table-hover text-white">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col"> Adı</th>
+            <th scope="col">Oranı</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var i = 0;}
+        @foreach (var item in Model)
+        {
+            { i++; }
+            <tr>
+                <th scope="row">@i</th>
+                <td class="align-middle">@item.Name</td>
+                <td class="align-middle">@item.Value</td>
+                <td class="text-right">
+                    <a class="btn btn-warning" href="/Skill/UpdateSkill/@item.Id">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="btn btn-danger ml-4" href="/Skill/DeleteSkill/@item.Id">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="d-flex justify-content-between">
+    <a href="/Skill/AddSkill" class="btn btn-outline-success text-white"><i class="fas fa-plus-circle"></i>  Yetenek Ekle</a>
+    <a href="/Skill" class="btn btn-outline-info text-white"><i class="fas fa-backward"></i>  Geri Dön</a>
+</div>

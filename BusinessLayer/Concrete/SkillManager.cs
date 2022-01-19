@@ -23,8 +23,9 @@ namespace BusinessLayer.Concrete
             _skillDal.Insert(skill);
         }
 
-        public void Delete(Skill skill)
+        public void Delete(int id)
         {
+            var skill = GetSkillById(id);
             _skillDal.Delete(skill);
         }
 

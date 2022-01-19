@@ -36,12 +36,12 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetListInbox()
         {
-            return _messageDal.List(m => m.ReceiverMail == "admin@gmail.com");
+            return _messageDal.List(m => m.ReceiverMail == "admin@gmail.com" && m.Status == true);
         }
 
         public List<Message> GetListSendbox()
         {
-            return _messageDal.List(m => m.SenderMail == "admin@gmail.com");
+            return _messageDal.List(m => m.SenderMail == "admin@gmail.com" && m.Status == true);
         }
 
         public List<Message> GetListDraft()

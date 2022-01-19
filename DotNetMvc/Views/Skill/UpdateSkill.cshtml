@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Skill
+
+@{
+    ViewBag.Title = "UpdateSkill";
+    Layout = "~/Views/Shared/_SkillLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateSkill", "Skill", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+
+    <div class="form-group">
+        @Html.Label("Yetenek Alanınız")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Yetenek Oranınız")
+        @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group text-right">
+        <input type="submit" class="btn btn-success" value="Kaydet" />
+        <a href="/Skill/Edit" class="btn btn-warning">Geri Dön</a>
+    </div>
+}
