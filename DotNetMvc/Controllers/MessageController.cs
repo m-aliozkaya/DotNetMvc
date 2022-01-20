@@ -15,6 +15,7 @@ namespace DotNetMvc.Controllers
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator validator = new MessageValidator();
         // GET: Message
+        [Authorize]
         public ActionResult Inbox()
         {
             var messageList = mm.GetListInbox();

@@ -1,13 +1,11 @@
 ﻿@model EntityLayer.Concrete.Heading
 
 @{
-    ViewBag.Title = "AddWriter";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "NewHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<h2>Yeni Başlık Ekle</h2>
-
-@using (Html.BeginForm("AddHeading", "Heading", FormMethod.Post))
+@using (Html.BeginForm("AddHeading", "WriterPanel", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
@@ -16,13 +14,8 @@
         @Html.ValidationMessageFor(w => w.Name)
     </div>
     <div class="form-group">
-        @Html.Label("Yazar")
-        @Html.DropDownList("WriterId", null, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
         @Html.Label("Kategori")
         @Html.DropDownList("CategoryId", null, new { @class = "form-control" })
     </div>
     <button class="btn btn-success">Başlık Ekle</button>
 }
-
