@@ -11,12 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{B8913CAA-37A4-49FA-83CD-DB7073C475FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScreenShots", "ScreenShots", "{3B634EE1-6B39-461F-BF3C-8F72D4769F12}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Desktop\skill-edit.png = ..\..\..\..\Desktop\skill-edit.png
-		..\..\..\..\Desktop\skill-homepage.png = ..\..\..\..\Desktop\skill-homepage.png
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

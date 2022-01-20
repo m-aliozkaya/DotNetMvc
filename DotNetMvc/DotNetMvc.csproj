@@ -436,6 +436,8 @@
     <Content Include="assets\plugins\summernote\summernote.min.js.map" />
     <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.js.map" />
     <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.min.js.map" />
+    <Content Include="screenshots\skill-edit.png" />
+    <Content Include="screenshots\skill-homepage.png" />
     <Content Include="Views\Statistics\statistics.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
