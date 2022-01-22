@@ -57,7 +57,7 @@ namespace DotNetMvc.Controllers
                 FormsAuthentication.SetAuthCookie(writer.Email, false);
                 Session["WriterMail"] = writer.Email;
 
-                return RedirectToAction("WriterProfile", "WriterPanel");
+                return RedirectToAction("WriterProfileContent", "WriterPanelContent");
             }
             else
             {
