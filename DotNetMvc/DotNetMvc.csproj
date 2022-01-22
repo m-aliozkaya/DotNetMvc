@@ -156,9 +156,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\adminlte.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\login.css" />
     <Content Include="assets\css\skill.css" />
     <Content Include="assets\css\style404.css" />
+    <Content Include="assets\css\writer-login.css" />
     <Content Include="assets\images\corn-field-1-1368931-1280x960-min.jpg" />
     <Content Include="assets\images\corn-field-2-1368926-1280x960-min.jpg" />
     <Content Include="assets\images\escalante-2-1391686-1280x960-min.jpg" />
@@ -211,12 +213,17 @@
     <Content Include="assets\img\user6-128x128.jpg" />
     <Content Include="assets\img\user7-128x128.jpg" />
     <Content Include="assets\img\user8-128x128.jpg" />
+    <Content Include="assets\img\writer-bg.jpg" />
     <Content Include="assets\js\adminlte.min.js" />
     <Content Include="assets\js\bars.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\dashboard3.js" />
     <Content Include="assets\js\demo.js" />
     <Content Include="assets\js\easyResponsiveTabs.js" />
     <Content Include="assets\js\jquery.circlechart.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\popper.js" />
     <Content Include="assets\plugins\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="assets\plugins\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="assets\plugins\bootstrap\js\bootstrap.js" />
@@ -505,6 +512,7 @@
     <Content Include="Views\WriterPanelMessage\GetMessageDetails.cshtml" />
     <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
     <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
+    <Content Include="Views\Login\WriterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

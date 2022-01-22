@@ -33,10 +33,9 @@ namespace BusinessLayer.Concrete
             return _writerDal.List();
         }
 
-        public Writer GetWriterById(int id)
-        {
-            return _writerDal.Get(w => w.Id == id);
-        }
+        public Writer GetWriter(Writer writer) => _writerDal.Get(x => x.Email == writer.Email && x.Password == writer.Password);
+
+        public Writer GetWriterById(int id) => _writerDal.Get(w => w.Id == id);
 
         public void UpdateWriter(Writer writer)
         {

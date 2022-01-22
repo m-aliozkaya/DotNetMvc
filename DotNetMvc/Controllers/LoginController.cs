@@ -14,6 +14,7 @@ namespace DotNetMvc.Controllers
     public class LoginController : Controller
     {
         AdminManager manager = new AdminManager(new EfAdminDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
 
         // GET: Login
         [HttpGet]
@@ -39,5 +40,30 @@ namespace DotNetMvc.Controllers
                 return Redirect(Request.UrlReferrer.AbsoluteUri);
             }
         }
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(Writer writer)
+        {
+            var user = writerManager.GetWriter(writer);
+
+            if (user != null)
+            {
+                FormsAuthentication.SetAuthCookie(writer.Email, false);
+                Session["WriterMail"] = writer.Email;
+
+                return RedirectToAction("WriterProfile", "WriterPanel");
+            }
+            else
+            {
+                return Redirect(Request.UrlReferrer.AbsoluteUri);
+            }
+        }
+
     }
 }
