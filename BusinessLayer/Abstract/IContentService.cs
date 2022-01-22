@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         List<Content> GetList();
 
         List<Content> GetListByHeading(int id);
+        List<Content> GetListByWriter(int id);
 
         void Add(Content content);
 
