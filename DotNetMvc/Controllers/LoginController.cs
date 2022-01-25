@@ -11,6 +11,7 @@ using System.Web.Security;
 
 namespace DotNetMvc.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         AdminManager manager = new AdminManager(new EfAdminDal());
@@ -57,7 +58,7 @@ namespace DotNetMvc.Controllers
                 FormsAuthentication.SetAuthCookie(writer.Email, false);
                 Session["WriterMail"] = writer.Email;
 
-                return RedirectToAction("WriterProfileContent", "WriterPanelContent");
+                return RedirectToAction("MyContent", "WriterPanelContent");
             }
             else
             {

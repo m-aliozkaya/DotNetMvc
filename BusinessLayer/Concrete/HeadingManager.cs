@@ -39,9 +39,9 @@ namespace BusinessLayer.Concrete
             return _headingDal.List();
         }
 
-        public List<Heading> GetListByWriter(int id)
+        public List<Heading> GetListByWriter(string mail)
         {
-            return _headingDal.List(x => x.WriterId == id);
+            return _headingDal.List(x => x.Writer.Email == mail);
         }
 
         public void Update(Heading heading)

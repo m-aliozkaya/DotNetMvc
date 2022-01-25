@@ -12,7 +12,7 @@ namespace BusinessLayer.Abstract
         List<Content> GetList();
 
         List<Content> GetListByHeading(int id);
-        List<Content> GetListByWriter(int id);
+        List<Content> GetListByWriter(string email);
 
         void Add(Content content);
 

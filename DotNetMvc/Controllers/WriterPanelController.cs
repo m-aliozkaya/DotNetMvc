@@ -13,6 +13,7 @@ namespace DotNetMvc.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         // GET: WriterPanel
         public ActionResult WriterProfile()
@@ -20,9 +21,10 @@ namespace DotNetMvc.Controllers
             return View();
         }
 
-        public ActionResult MyHeading(int id = 4)
+        public ActionResult MyHeading()
         {
-            var headings = hm.GetListByWriter(id);
+            var writerMail = (string)Session["WriterMail"];
+            var headings = hm.GetListByWriter(writerMail);
             return View(headings);
         }
 
@@ -37,7 +39,9 @@ namespace DotNetMvc.Controllers
         public ActionResult AddHeading(Heading heading)
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.WriterId = 4;
+            var writerMail = (string)Session["WriterMail"];
+            var writerId = wm.GetWriterByMail(writerMail).Id;
+            heading.WriterId = writerId;
             heading.Status = true;
             hm.Add(heading);
             return RedirectToAction("MyHeading");

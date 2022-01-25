@@ -15,7 +15,8 @@ namespace DotNetMvc.Controllers
         // GET: WriterPanelContent
         public ActionResult MyContent()
         {
-            var contents = cm.GetListByWriter(1);
+            var writerMail = (string) Session["WriterMail"];
+            var contents = cm.GetListByWriter(writerMail);
             return View(contents);
         }
     }
