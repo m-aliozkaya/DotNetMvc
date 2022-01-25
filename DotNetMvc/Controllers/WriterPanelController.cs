@@ -28,6 +28,13 @@ namespace DotNetMvc.Controllers
             return View(headings);
         }
 
+
+        public ActionResult AllHeadings()
+        {
+            var headings = hm.GetList();
+            return View(headings);
+        }
+
         [HttpGet]
         public ActionResult AddHeading()
         {

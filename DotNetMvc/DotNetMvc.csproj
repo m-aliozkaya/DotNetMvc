@@ -135,6 +135,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GalleryManager.cs" />
@@ -513,6 +514,10 @@
     <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
     <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
     <Content Include="Views\Login\WriterLogin.cshtml" />
+    <Content Include="Views\Default\Headings.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\WriterPanel\AllHeadings.cshtml" />
+    <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

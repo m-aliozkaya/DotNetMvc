@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace DotNetMvc.Controllers
     public class WriterPanelContentController : Controller
     {
         ContentManager cm = new ContentManager(new EfContentDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         // GET: WriterPanelContent
         public ActionResult MyContent()
@@ -19,5 +21,24 @@ namespace DotNetMvc.Controllers
             var contents = cm.GetListByWriter(writerMail);
             return View(contents);
         }
+
+        [HttpGet]
+        public ActionResult AddContent(int id)
+        {
+            ViewBag.HeadingId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddContent(Content content)
+        {
+            var mail = (string) Session["WriterMail"];
+            var writerId = wm.GetWriterByMail(mail).Id;
+            content.ContentDate =  DateTime.Parse(DateTime.Now.ToShortDateString());
+            content.WriterId = writerId;
+            cm.Add(content);
+            return RedirectToAction("MyContent");
+        }
+
     }
 }
