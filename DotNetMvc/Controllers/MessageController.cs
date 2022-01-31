@@ -18,21 +18,24 @@ namespace DotNetMvc.Controllers
         [Authorize]
         public ActionResult Inbox()
         {
-            var messageList = mm.GetListInbox();
+            var mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListInbox(mail);
 
             return View(messageList);
         }
 
         public ActionResult Sendbox()
         {
-            var messageList = mm.GetListSendbox();
+            var mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListSendbox(mail);
 
             return View(messageList);
         }
 
         public ActionResult Draft()
         {
-            var messageList = mm.GetListDraft();
+            var mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListDraft(mail);
 
             return View(messageList);
         }

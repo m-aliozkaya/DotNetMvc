@@ -31,10 +31,11 @@ namespace DotNetMvc.Controllers
 
         public PartialViewResult MessageListMenu()
         {
-            ViewBag.sendboxCount = mm.GetListSendbox().Count;
-            ViewBag.inboxCount = mm.GetListInbox().Where(x => x.IsReaded == false).ToList().Count;
+            var mail = (string)Session["WriterMail"];
+            ViewBag.sendboxCount = mm.GetListSendbox(mail).Count;
+            ViewBag.inboxCount = mm.GetListInbox(mail).Where(x => x.IsReaded == false).ToList().Count;
             ViewBag.contactCount = cm.GetList().Count;
-            ViewBag.draftCount = mm.GetListDraft().Count;
+            ViewBag.draftCount = mm.GetListDraft(mail).Count;
 
             return PartialView();
         }

@@ -56,6 +56,12 @@
       <HintPath>..\packages\FluentValidation.10.3.3\lib\netstandard2.0\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -413,6 +419,7 @@
     <Content Include="assets\plugins\summernote\summernote.min.css" />
     <Content Include="assets\plugins\summernote\summernote.min.js" />
     <Content Include="assets\plugins\summernote\summernote.min.js.LICENSE.txt" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="assets\plugins\fontawesome-free\webfonts\fa-brands-400.eot" />
@@ -445,8 +452,55 @@
     <Content Include="assets\plugins\summernote\summernote.min.js.map" />
     <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.js.map" />
     <Content Include="assets\plugins\ekko-lightbox\ekko-lightbox.min.js.map" />
+    <Content Include="public\css\aos-animation.css" />
+    <Content Include="public\css\aos.css" />
+    <Content Include="public\css\bootstrap.css" />
+    <Content Include="public\css\fontawesome-all.css" />
+    <Content Include="public\css\roadmap.css" />
+    <Content Include="public\css\simpleLightbox.css" />
+    <Content Include="public\css\snow.css" />
+    <Content Include="public\css\style.css" />
+    <Content Include="public\images\banner.jpg" />
+    <Content Include="public\images\close.png" />
+    <Content Include="public\images\contact.jpg" />
+    <Content Include="public\images\exp.jpg" />
+    <Content Include="public\images\g1.jpg" />
+    <Content Include="public\images\g2.jpg" />
+    <Content Include="public\images\g3.jpg" />
+    <Content Include="public\images\g4.jpg" />
+    <Content Include="public\images\g5.jpg" />
+    <Content Include="public\images\g6.jpg" />
+    <Content Include="public\images\g7.jpg" />
+    <Content Include="public\images\g8.jpg" />
+    <Content Include="public\images\g9.jpg" />
+    <Content Include="public\images\loader.gif" />
+    <Content Include="public\images\move_up.png" />
+    <Content Include="public\images\next.png" />
+    <Content Include="public\images\prev.png" />
+    <Content Include="public\images\serve.jpg" />
+    <Content Include="public\images\stats.jpg" />
+    <Content Include="public\images\testimonials.jpg" />
+    <Content Include="public\index.html" />
+    <Content Include="public\js\aos.js" />
+    <Content Include="public\js\bootstrap.js" />
+    <Content Include="public\js\easing.js" />
+    <Content Include="public\js\jquery-2.2.3.min.js" />
+    <Content Include="public\js\jquery.countup.js" />
+    <Content Include="public\js\jquery.roadmap.js" />
+    <Content Include="public\js\jquery.waypoints.min.js" />
+    <Content Include="public\js\move-top.js" />
+    <Content Include="public\js\simpleLightbox.js" />
+    <Content Include="public\w3layouts-license.txt" />
+    <Content Include="public\webfonts\fa-brands-400.svg" />
+    <Content Include="public\webfonts\fa-regular-400.svg" />
+    <Content Include="public\webfonts\fa-solid-900.svg" />
+    <Content Include="screenshots\headings.jpg" />
+    <Content Include="screenshots\inbox.jpg" />
+    <Content Include="screenshots\myContent.jpg" />
+    <Content Include="screenshots\myHeading.jpg" />
     <Content Include="screenshots\skill-edit.png" />
-    <Content Include="screenshots\skill-homepage.png" />
+    <Content Include="screenshots\skills.jpg" />
+    <Content Include="screenshots\writers.jpg" />
     <Content Include="Views\Statistics\statistics.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -459,8 +513,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\GetCategoryList.cshtml" />
@@ -518,6 +570,18 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\WriterPanel\AllHeadings.cshtml" />
     <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
+    <Content Include="public\webfonts\fa-brands-400.eot" />
+    <Content Include="public\webfonts\fa-brands-400.ttf" />
+    <Content Include="public\webfonts\fa-brands-400.woff" />
+    <Content Include="public\webfonts\fa-brands-400.woff2" />
+    <Content Include="public\webfonts\fa-regular-400.eot" />
+    <Content Include="public\webfonts\fa-regular-400.ttf" />
+    <Content Include="public\webfonts\fa-regular-400.woff" />
+    <Content Include="public\webfonts\fa-regular-400.woff2" />
+    <Content Include="public\webfonts\fa-solid-900.eot" />
+    <Content Include="public\webfonts\fa-solid-900.ttf" />
+    <Content Include="public\webfonts\fa-solid-900.woff" />
+    <Content Include="public\webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

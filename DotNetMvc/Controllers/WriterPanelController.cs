@@ -1,6 +1,9 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +21,30 @@ namespace DotNetMvc.Controllers
         // GET: WriterPanel
         public ActionResult WriterProfile()
         {
-            return View();
+            var writerMail = (string)Session["WriterMail"];
+            var writer = wm.GetWriterByMail(writerMail);
+            return View(writer);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+            WriterValidator validationRules = new WriterValidator();
+            ValidationResult result = validationRules.Validate(writer);
+
+            if (result.IsValid)
+            {
+                wm.UpdateWriter(writer);
+                return RedirectToAction("AllHeadings");
+            }
+
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+
+            return View(writer);
         }
 
         public ActionResult MyHeading()
@@ -29,9 +55,9 @@ namespace DotNetMvc.Controllers
         }
 
 
-        public ActionResult AllHeadings()
+        public ActionResult AllHeadings(int p = 1)
         {
-            var headings = hm.GetList();
+            var headings = hm.GetList().ToPagedList(p, 2);
             return View(headings);
         }
 

@@ -2,7 +2,7 @@
 @model List<Heading>
 
 @{
-    ViewBag.Title = "MyHeading";
+    ViewBag.Title = "Başlıklarım";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Projects</h1>
+                <h1>Başlıklarım</h1>
             </div>
         </div>
     </div><!-- /.container-fluid -->
@@ -45,9 +45,6 @@
                         </th>
                         <th style="width: 20%">
                             Başlık Adı
-                        </th>
-                        <th style="width: 30%" class="text-center">
-                            Oluşturan Yazar
                         </th>
                         <th style="width: 8%" class="text-center">
                             Kategori
@@ -81,13 +78,6 @@
                                 <small>
                                     @item.HeadingDate.ToString("dd MMMM yyyy")
                                 </small>
-                            </td>
-                            <td class="text-center">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar" src="@item.Writer.Image">
-                                    </li>
-                                </ul>
                             </td>
                             <td class="project-state">
                                 <span class="@color">@item.Category.Name</span>

@@ -29,6 +29,7 @@ body {
 }
 
     .notfound .notfound-404 {
+        margin-bottom:50px;
         height: 280px;
         position: relative;
         z-index: -1;

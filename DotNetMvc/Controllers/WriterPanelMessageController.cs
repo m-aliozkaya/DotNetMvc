@@ -20,14 +20,16 @@ namespace DotNetMvc.Controllers
 
         public ActionResult Inbox()
         {
-            var messageList = mm.GetListInbox();
+            var mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListInbox(mail);
 
             return View(messageList);
         }
 
         public ActionResult Sendbox()
         {
-            var messageList = mm.GetListSendbox();
+            var mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListSendbox(mail);
 
             return View(messageList);
         }
@@ -42,7 +44,8 @@ namespace DotNetMvc.Controllers
 
         public ActionResult Draft()
         {
-            var messageList = mm.GetListDraft();
+            var mail = (string)Session["WriterMail"];
+            var messageList = mm.GetListDraft(mail);
 
             return View(messageList);
         }
@@ -61,6 +64,8 @@ namespace DotNetMvc.Controllers
         {
             message.Date = DateTime.Now;
             message.Status = true;
+            var sender = (string)Session["WriterMail"];
+            message.SenderMail = sender;
 
             var result = validator.Validate(message);
 
@@ -85,6 +90,8 @@ namespace DotNetMvc.Controllers
         {
             message.Date = DateTime.Now;
             message.Status = false;
+            var sender = (string)Session["WriterEmail"];
+            message.SenderMail = sender;
 
             var result = validator.Validate(message);
 
